@@ -1,9 +1,12 @@
 "use client";
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
@@ -37,11 +40,35 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile menu button could be added here later if needed */}
-        <div className="md:hidden">
-          <span className="text-cyan-400 font-mono text-sm">MENU</span>
-        </div>
+        <button 
+          className="md:hidden text-cyan-400 font-mono text-sm tracking-widest outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? 'CLOSE' : 'MENU'}
+        </button>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden mt-4 pt-4 border-t border-cyan-500/20 flex flex-col gap-4"
+          >
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="text-sm uppercase tracking-wider font-mono text-gray-300 hover:text-cyan-400 transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

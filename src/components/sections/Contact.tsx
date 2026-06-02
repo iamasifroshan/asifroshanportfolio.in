@@ -92,7 +92,7 @@ export default function Contact() {
           {/* Outer Orbit (350px) */}
           <div className="absolute w-[350px] h-[350px] border border-cyan-500/10 rounded-full animate-[spin_30s_linear_reverse_infinite] pointer-events-none">
             <a 
-              href="https://asifroshanportfolio.in"
+              href="https://asifroshanportfolioin.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Portfolio"
@@ -144,7 +144,7 @@ export default function Contact() {
               <ContactCard icon={<Phone className="w-5 h-5" />} label="CALL ME" value="+91 9444468014" href="tel:+919444468014" />
               <ContactCard icon={<GithubIcon />} label="GITHUB" value="iamasifroshan" href="https://github.com/iamasifroshan" />
               <ContactCard icon={<LinkedinIcon />} label="LINKEDIN" value="asif-roshan-462426358" href="https://www.linkedin.com/in/asif-roshan-462426358/" />
-              <ContactCard icon={<GlobeIcon />} label="PORTFOLIO" value="asifroshanportfolio.in" href="https://asifroshanportfolio.in" />
+              <ContactCard icon={<GlobeIcon />} label="PORTFOLIO" value="asifroshanportfolioin.vercel.app" href="https://asifroshanportfolioin.vercel.app" />
               <ContactCard icon={<MapPin className="w-5 h-5" />} label="LOCATION" value="Dharmapuri, Tamil Nadu" href="#" />
             </div>
           </motion.div>
